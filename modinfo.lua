@@ -1,41 +1,19 @@
-name = ' Auto-Unequip on 1%'
-description = 'Server mod. Automatically unequips equipped items upon reaching 1% durability to prevent them from breaking. Feature also applies to similar equippables such as magiluminescence, eyebrellas, puffy vests, rain hats, etc.'
+name = 'Auto-Unequip on 1% v30'
+description = 'Server mod. Uses the original client mod logic to automatically unequip equipped items upon reaching 1% durability, while ignoring hand slot items and nonrefillables by default.'
 author = 'Codex'
-version = 'ten'
+version = 'thirty'
 forumthread = ''
 api_version = 10
 dst_compatible = true
 client_only_mod = false
 dont_starve_compatible = false
 reign_of_giants_compatible = false
-all_clients_require_mod = false
+all_clients_require_mod = true
 icon_atlas = 'Magi Auto-Unequip.xml'
 icon = 'Magi Auto-Unequip.tex'
 server_filter_tags = {}
 
 configuration_options = {
-	{
-		name = 'MAU_threshold',
-		label = 'Unequip threshold',
-		options =
-		{
-			{description = '1%', data = 0.01, hover = 'Unequip at 1% durability or fuel'},
-			{description = '2%', data = 0.02, hover = 'Unequip at 2% durability or fuel'},
-			{description = '5%', data = 0.05, hover = 'Unequip at 5% durability or fuel'},
-			{description = '10%', data = 0.10, hover = 'Unequip at 10% durability or fuel'},
-		},
-		default = 0.01
-	},
-	{
-		name = 'MAU_item_mode',
-		label = 'Affected items',
-		options =
-		{
-			{description = 'Common refillables', data = 'whitelist', hover = 'Only auto-unequip common refillable gear such as magiluminescence, eyebrella, rain gear, and vests'},
-			{description = 'All durable gear', data = 'all', hover = 'Auto-unequip all equipped items with fuel, finite uses, or armor durability'},
-		},
-		default = 'whitelist'
-	},
 	{
 		name = 'MAU_notif',
 		label = 'Notify on unequip',
@@ -69,15 +47,13 @@ configuration_options = {
 	},
 	{
 		name = 'MAU_hands',
-		label = 'Hand slot items',
+		label = 'Ignore hand slot items',
 		options = 
 		{
-			{description = 'Ignore all', data = 'ignore', hover = 'Ignore all hand slot items'},
-			{description = 'Tools only', data = 'tools', hover = 'Only auto-unequip hand slot tools'},
-			{description = 'Weapons only', data = 'weapons', hover = 'Only auto-unequip hand slot weapons'},
-			{description = 'All hand items', data = 'all', hover = 'Auto-unequip all hand slot items'},
+			{description = 'Yes', data = true, hover = 'Ignore hand slot items on 1% durability'},
+			{description = 'No', data = false, hover = 'Auto-unequip hand slot items on 1% durability'},
 		},
-		default = 'ignore'
+		default = true
 	},
 	{
 		name = 'MAU_force',
