@@ -1,11 +1,11 @@
 name = ' Auto-Unequip on 1%'
-description = 'Client mod. Automatically unequips your magiluminescence upon reaching 1% durability to prevent it from breaking. Feature also applies to similar equippables such as eyebrellas, puffy vests, rain hats, etc.'
+description = 'Server mod. Automatically unequips equipped items upon reaching 1% durability to prevent them from breaking. Feature also applies to similar equippables such as magiluminescence, eyebrellas, puffy vests, rain hats, etc.'
 author = 'John Watson'
-version = 'five'
+version = 'six'
 forumthread = ''
 api_version = 10
 dst_compatible = true
-client_only_mod = true
+client_only_mod = false
 dont_starve_compatible = false
 reign_of_giants_compatible = false
 all_clients_require_mod = false
