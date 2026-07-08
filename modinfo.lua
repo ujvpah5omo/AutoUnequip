@@ -1,7 +1,7 @@
 name = ' Auto-Unequip on 1%'
 description = 'Server mod. Automatically unequips equipped items upon reaching 1% durability to prevent them from breaking. Feature also applies to similar equippables such as magiluminescence, eyebrellas, puffy vests, rain hats, etc.'
 author = 'Codex'
-version = 'nine'
+version = 'ten'
 forumthread = ''
 api_version = 10
 dst_compatible = true
