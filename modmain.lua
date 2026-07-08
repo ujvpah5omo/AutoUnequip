@@ -41,6 +41,7 @@ local MSG_ZH_WITH_ITEM = '\229\191\171\229\157\143\228\186\134\239\188\140\229\1
 
 local WHITELIST = {
 	magiluminescence	=	true,
+	yellowamulet		=	true,
 	eyebrellahat		=	true,
 	rainhat				=	true,
 	raincoat			=	true,
