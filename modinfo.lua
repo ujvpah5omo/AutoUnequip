@@ -1,7 +1,7 @@
-name = 'Auto-Unequip on 1% v30'
+name = 'Auto-Unequip on 1% v31'
 description = 'Server mod. Uses the original client mod logic to automatically unequip equipped items upon reaching 1% durability, while ignoring hand slot items and nonrefillables by default.'
 author = 'Codex'
-version = 'thirty'
+version = 'thirty-one'
 forumthread = ''
 api_version = 10
 dst_compatible = true

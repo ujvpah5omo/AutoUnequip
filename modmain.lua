@@ -1,7 +1,7 @@
 local G = GLOBAL
 
 local IS_CLIENT = G.TheNet ~= nil and G.TheNet:GetIsClient()
-local MOD_VERSION = 'v30'
+local MOD_VERSION = 'v31'
 
 
 local cfgThreshold = 0.01
@@ -610,54 +610,12 @@ local function WrapFueledSetCurrentFuel (self)
 end
 
 
-local function InstallYellowAmuletRemoveGuard (inst)
-
-	if inst.MAU_old_Remove ~= nil or inst.Remove == nil then
-		return
-	end
-
-	inst.MAU_old_Remove = inst.Remove
-
-	inst.Remove = function (item, ...)
-		local owner = GetEquippedOwner(item) or GetInventoryOwner(item)
-
-		if owner ~= nil
-			and item.components ~= nil
-			and item.components.fueled ~= nil
-			and not item.MAU_auto_unequipped
-			and (item.IsValid == nil or item:IsValid())
-		then
-			DebugPrint('yellowamulet Remove intercepted', 'owner='..OwnerLabel(owner), 'equipped='..tostring(GetEquippedOwner(item) ~= nil))
-
-			PreserveFueledItem(item)
-
-			if GetEquippedOwner(item) ~= nil then
-				TryUnequip(item, 0, 1)
-			else
-				KeepItemWithOwner(item, owner)
-			end
-
-			PreserveFueledItem(item)
-			return
-		end
-
-		DebugPrint('yellowamulet Remove allowed', 'owner='..OwnerLabel(owner))
-		return item.MAU_old_Remove(item, ...)
-	end
-
-	DebugPrint('yellowamulet Remove guard installed')
-
-end
-
-
 local function ProtectYellowAmulet (inst)
 
 	if inst.components == nil or inst.components.fueled == nil then
 		DebugPrint('yellowamulet protect skipped', 'has_components='..tostring(inst.components ~= nil))
 		return
 	end
-
-	InstallYellowAmuletRemoveGuard(inst)
 
 	inst.components.fueled:SetDepletedFn(function (item)
 		local owner = GetEquippedOwner(item) or GetInventoryOwner(item)
